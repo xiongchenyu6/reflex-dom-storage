@@ -7,6 +7,7 @@ Portability : non-portable
 -}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE StandaloneDeriving #-}
 module Data.GADT.Aeson (
     GKey(..)
   , ToJSONTag(..)
