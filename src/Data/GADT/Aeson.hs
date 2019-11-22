@@ -55,7 +55,11 @@ decodeTagged k =
     decodeWith jsonEOF (parse (parseJSONTagged k)) . fromStrict . encodeUtf8
 
 newtype JSONDMap k f = JSONDMap { unJSONDMap :: DMap k f}
-  deriving (Eq, Ord, Show, Read)
+
+deriving instance Eq (DMap k f) => Eq (JSONDMap k f)
+deriving instance Ord (DMap k f) => Ord (JSONDMap k f)
+deriving instance Show (DMap k f) => Show (JSONDMap k f)
+deriving instance Read (DMap k f) => Read (JSONDMap k f)
 
 instance (GKey k, ToJSONTag k f) => ToJSON (JSONDMap k f) where
   toJSON dm =
